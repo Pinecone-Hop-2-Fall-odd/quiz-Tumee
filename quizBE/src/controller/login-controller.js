@@ -1,9 +1,12 @@
 import fs from "fs";
+import { UserModel } from "../models/user-models";
+import { userRouter } from "./routes/user-routes.js";
 
-export const login = (request, response) => {
+export const login =async (request, response) => {
   const body = request.body;
   const newUser = {
-    id: Date.now().toString(),
+    id: Date.now().toString(), 
+     
     username: body.UserName,
     password: body.key
   };
