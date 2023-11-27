@@ -1,8 +1,7 @@
 import fs from "fs";
 import { UserModel } from "../models/user-models";
-import { userRouter } from "./routes/user-routes.js";
-
-export const login =async (request, response) => {
+  
+export const login = (request, response) => {
   const body = request.body;
   const newUser = {
     id: Date.now().toString(), 

@@ -1,1 +1,20 @@
 @import url("./header.css");
+.startButton{
+    width: 35vh;
+    height: 10vh;
+    margin-left: 30vh;
+    margin-top: 20vh;
+    border-radius: 60px;
+    font-size: 6vh;
+    display: flex;
+    justify-content: center;
+    gap: 5vh;
+    padding-top:1vh ;
+    border-style: double;
+}
+.reactplayer{
+    margin: -10px;
+}
+.reactplayer1{
+    margin-left: 100ch;
+}
