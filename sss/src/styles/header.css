@@ -5,6 +5,8 @@
     background-color: transparent;
     justify-content: center;
     text-align: center;
+    margin-left: 50vh ;
+    margin-top: 3vh;
     gap: 40px;
 }
 .quiz{

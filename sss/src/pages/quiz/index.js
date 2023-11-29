@@ -1,10 +1,21 @@
 import { Header } from "../components/header"
-export default function Quiz(id){
+import ReactPlayer from "react-player"
+export default function Quiz(){
     return(
-        <div style={{marginLeft:"60vh"}}>
+        <div>
             <Header />
-            <div>
-                
+            <p style={{justifyContent:"center",textAlign:"center"}}>Which One is most expensive</p>
+            <div className="quiz-res-div">
+                <img className="button1"></img>
+                <ReactPlayer
+                    url={'/video/timer.mp4'}
+                    controls
+                    playing
+                    width="30vh"
+                    style={{marginTop:"24vh"}}
+                    height="auto"
+                 />
+                <img className="button2"></img>
             </div>
         </div>
     )

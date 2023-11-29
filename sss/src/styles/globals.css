@@ -2,7 +2,7 @@
 .startButton{
     width: 35vh;
     height: 10vh;
-    margin-left: 30vh;
+    margin-left: 80vh;
     margin-top: 20vh;
     border-radius: 60px;
     font-size: 6vh;
@@ -12,9 +12,21 @@
     padding-top:1vh ;
     border-style: double;
 }
-.reactplayer{
-    margin: -10px;
+.button1{
+    width: 40vh;
+    height: 30vh;
+    margin: 200px;
+    border: 10px solid #3aaef0;
 }
-.reactplayer1{
-    margin-left: 100ch;
+.button2{
+    width: 40vh;
+    height: 30vh;
+    margin: 200px;
+    border: 10px solid #e73929;
+}
+.quiz-res-div{
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
 }

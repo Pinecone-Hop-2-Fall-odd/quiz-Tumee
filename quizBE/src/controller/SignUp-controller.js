@@ -1,5 +1,4 @@
 import fs from "fs";
-import { UserModel } from "../models/user-models";
 
 export const SignUp = (request, response) => {x
   const body = request.body;
