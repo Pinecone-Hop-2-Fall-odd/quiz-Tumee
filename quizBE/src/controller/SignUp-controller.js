@@ -1,14 +1,15 @@
 import fs from "fs";
 
-export const SignUp = (request, response) => {x
+export const SignUp = (request, response) => {
   const body = request.body;
-    let saveData = JSON.parse(data);
-      const NewUser={
-        id: Date.now().toString(), 
-        username: body.UserName,
-        password: body.key
-      }
-    };
+  fs.readFile("./data/data.json", (readError, data) =>{
+    let saveData=JSON.parse(data);
+    const newUser={
+      id: Date.now().toString(),
+      username: body.UserName,
+      password: body.key
+    }
+  })
     saveData.push(NewUser);
     fs.writeFile("./data/data.json", JSON.stringify(saveData), (writeError) => {
       if (writeError) {
@@ -21,4 +22,4 @@ export const SignUp = (request, response) => {x
           data: saveData,
         });
       }
-    });
+})};

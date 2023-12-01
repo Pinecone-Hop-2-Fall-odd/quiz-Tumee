@@ -1,21 +1,21 @@
+import axios from "axios";
 import { Header } from "../components/header"
 import ReactPlayer from "react-player"
+import { useState } from "react";
 export default function Quiz(){
+    const WOIE_Quiz = async() =>{
+        const { data } = await axios.post('http://localhost:8000/quiz', {
+            //FirstPic: first,
+            //SecPic: sec
+        });
+    }
     return(
         <div>
             <Header />
-            <p style={{justifyContent:"center",textAlign:"center"}}>Which One is most expensive</p>
+            <p className="woime">Which One is most expensive</p>
             <div className="quiz-res-div">
-                <img className="button1"></img>
-                <ReactPlayer
-                    url={'/video/timer.mp4'}
-                    controls
-                    playing
-                    width="30vh"
-                    style={{marginTop:"24vh"}}
-                    height="auto"
-                 />
-                <img className="button2"></img>
+                <img onClick={WOIE_Quiz} className="button1"></img>
+                <img onClick={WOIE_Quiz} className="button2"></img>
             </div>
         </div>
     )

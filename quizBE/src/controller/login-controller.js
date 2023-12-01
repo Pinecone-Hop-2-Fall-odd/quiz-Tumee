@@ -4,7 +4,6 @@ export const login = (request, response) => {
   const body = request.body;
   const newUser = {
     id: Date.now().toString(), 
-     
     username: body.UserName,
     password: body.key
   };
