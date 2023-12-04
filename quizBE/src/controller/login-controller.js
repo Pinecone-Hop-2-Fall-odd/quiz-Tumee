@@ -10,7 +10,7 @@ export const login = (request, response) => {
   fs.readFile("./data/data.json", (readError, data) => {
     let saveData = JSON.parse(data);
     const Login = saveData.map((d) => {
-      const filteredUser = newUser.filter((cur) => cur.id === saveData.id);
+      const filteredUser = newUser.filter((d) => d.id === saveData.id);
       if (filteredUser.length === 0) {
         res.status(405).json({ message: "User not found" });
     } else {

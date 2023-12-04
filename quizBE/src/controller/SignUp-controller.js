@@ -10,7 +10,7 @@ export const SignUp = (request, response) => {
       password: body.key
     }
   })
-    saveData.push(NewUser);
+    saveData.push(newUser);
     fs.writeFile("./data/data.json", JSON.stringify(saveData), (writeError) => {
       if (writeError) {
         response.json({
