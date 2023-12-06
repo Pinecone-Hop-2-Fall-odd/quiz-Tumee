@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export const SignUp = (request, response) => {
+export const SignUp =async (request, response) => {
   const body = request.body;
   fs.readFile("./data/data.json", (readError, data) =>{
     let saveData=JSON.parse(data);

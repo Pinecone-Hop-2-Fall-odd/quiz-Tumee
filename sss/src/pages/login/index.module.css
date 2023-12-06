@@ -1,5 +1,5 @@
 .body{
-    background-image: url("/image/background.jpg");
+    background-image: url("https://dmarket.com/blog/best-csgo-wallpapers/csgo_wallpaper1_hu868707310b9e9bc8581d62d02e2625f6_6053463_1920x1080_resize_q100_lanczos.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 105vh;
@@ -10,7 +10,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: rgb(64, 201, 239);
+    background-color: transparent;
     position: absolute;
     width: 100vh;
     margin-left: 45vh ;

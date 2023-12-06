@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
 import css from './index.module.css'
+import { Header } from '../components/header';
 export default function Home() {
   const [UserName, setUserName] = useState("");
   const [key,setKey] = useState("")
@@ -19,7 +20,7 @@ export default function Home() {
     return (
       <div className={css.body}>
         <div className={css.Div}>
-            <h1>Quiz</h1>
+          <img></img>
             <div className={css.Div1}>
                 <input 
                 className={css.Input} 

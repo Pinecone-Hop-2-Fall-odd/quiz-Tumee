@@ -1,6 +1,5 @@
 import axios from "axios";
 import { Header } from "../components/header"
-import ReactPlayer from "react-player"
 import { useState } from "react";
 import { data } from "autoprefixer";
 export default function Quiz(){
