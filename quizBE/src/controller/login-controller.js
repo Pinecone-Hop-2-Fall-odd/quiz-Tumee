@@ -1,32 +1,28 @@
 import fs from "fs";
-  
-export const login = (request, response) => {
-  const body = request.body;
-  const newUser = {
-    id: Date.now().toString(), 
-    username: body.UserName,
-    password: body.key
-  };
-  fs.readFile("./data/data.json", (readError, data) => {
-    let saveData = JSON.parse(data);
-    const Login = saveData.map((d) => {
-      const filteredUser = newUser.filter((d) => d.id === saveData.id);
-      if (filteredUser.length === 0) {
-        res.status(405).json({ message: "User not found" });
-    } else {
-        res.status(200).json({ user: filteredUser[0] });
-    }});
-    fs.writeFile("./data/data.json", JSON.stringify(Login), (writeError) => {
-      if (writeError) {
-        response.json({
-          status: "error",
-        });
+export const login = (req, res) => {
+    const body = req.body;
+    if (body.UserName === undefined) {
+        res.status(403).json({ message: "Email required" })
+        return;
+    }
+    if (body.password === undefined) {
+        res.status(403).json({ message: "Password required" })
+        return;
+    }
+    fs.readFile("./data/data.json", (readError, data) => {
+      let saveData = JSON.parse(data);
+      const filterU = body.UserName.filter((cur) =>cur=== saveData.username);
+      if (filterU.length === 0) {
+        res.status(406).json({ message: "User not found" });
       } else {
-        response.json({
-          status: "success",
-          data: saveData,
-        });
+        const user = filterU[0];
+        if (user.password === body.password) {
+          res.status(200).json({ user: user });
+          return;
+        } else {
+          res.status(405).json({ message: "Password not match" });
+          return;
+        }
       }
     });
-  });
-};
+}

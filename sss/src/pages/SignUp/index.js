@@ -14,16 +14,13 @@ export default function Home() {
       //UserName: UserName,
     //});
     async function login() {
-      const {data} = await fetch("http://localhost:8000/SignUp",{
-        method:"POST",
-        body: {
-          key: key,
-          UserName: UserName
-        }
-      })
+      const { data } = await axios.post('http://localhost:8000/SignUp', {
+        password: key,
+        UserName: UserName
+    });
       console.log(`complete`);
       setUserName("");
-      alert("complete now Log in");
+      router.push(`/login`)
     }
     return (
       <div className={css.body}>
