@@ -13,11 +13,16 @@ app.use(Router);
 
 const connectUser = async () => {
   await mongoose.connect(
-    "mongodb+srv://Tum:Tumee0205@cluster0.femwxfk.mongodb.net/"
-  );
+    "mongodb+srv://Tum:Tumee0205@cluster0.femwxfk.mongodb.net/");
+  console.log("connected");
+};
+const connectQuiz = async () => {
+  await mongoose.connect(
+    "mongodb+srv://Tum:Tumee0205@cluster0.femwxfk.mongodb.net/");
   console.log("connected");
 };
 connectUser();
+connectQuiz();
 app.listen(port, () => {
   console.log("Server is running on http://localhost:" + port);
 });

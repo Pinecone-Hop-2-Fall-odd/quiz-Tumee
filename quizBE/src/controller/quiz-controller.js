@@ -1,8 +1,9 @@
-import fs from "fs";
+import { QuizModel } from "../models/quiz-models.js";
   
-export const quiz = (request, response) => {
-  fs.readFile("./data/quiz.json", (readError, data) => {
-    let saveData = JSON.parse(data);
-    response.json(saveData)
+export const AddQuiz =async (request, response) => {
+  const quiz=await QuizModel.find();
+  response.json({
+    status: "success",
+    data: quiz,
   });
 };
