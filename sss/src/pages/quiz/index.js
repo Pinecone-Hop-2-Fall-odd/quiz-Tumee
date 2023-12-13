@@ -6,7 +6,11 @@ export default function Quiz(){
         const [data1,setData1]=useState('')
         const []=useState('')
     const WOIE_Quiz = async() =>{
-        const { data } = await axios.get('http://localhost:8000/quiz');
+        const data = await axios.get('http://localhost:8000/quiz');
+        //console.log(data)
+        const dataCont =data.data.quiz
+        console.log(dataCont)
+
     }
     WOIE_Quiz();
     return(

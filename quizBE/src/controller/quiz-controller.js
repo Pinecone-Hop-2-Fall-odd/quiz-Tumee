@@ -28,6 +28,9 @@ export const AddQuiz =async (request, response) => {
     message: "success"
   });
 };
-export const quiz = async (req,res)=>{
-  const quiz = QuizModel
-}
+  export const quiz = async (req,res)=>{
+    const quiz = await QuizModel.find({})
+    res.json({
+      quiz: quiz,
+    })
+  }
