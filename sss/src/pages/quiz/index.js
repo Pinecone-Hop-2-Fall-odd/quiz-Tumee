@@ -4,6 +4,7 @@ import { useState } from "react";
 import { data } from "autoprefixer";
 export default function Quiz(){
         const [data1,setData1]=useState('')
+        const []=useState('')
     const WOIE_Quiz = async() =>{
         const { data } = await axios.get('http://localhost:8000/quiz');
     }

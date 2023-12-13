@@ -1,6 +1,7 @@
 import express from "express";
-import { AddQuiz } from "../controller/quiz-controller.js";
+import { AddQuiz,quiz } from "../controller/quiz-controller.js";
 
 export const Router = express.Router()
 
-Router.get('/AddQuiz',AddQuiz);
+Router.post('/AddQuiz',AddQuiz);
+Router.get("/quiz",quiz)
