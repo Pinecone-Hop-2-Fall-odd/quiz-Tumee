@@ -9,7 +9,6 @@ export default function Home() {
   const [itemPrice2, setItemPrice2] = useState("");
   const [itemUrl, setItemUrl] = useState("");
   const [itemUrl2, setItemUrl2] = useState("");
-  const [] = useState("")
   const router = useRouter();
   const post = async () => {
     await axios.post('http://localhost:8000/AddQuiz', {
@@ -55,7 +54,7 @@ export default function Home() {
                       onChange={(e) => setItemPrice(e.target.value)} />
                     </div>
                     <div>
-                      <p className={css.title}>Url</p>
+                      <p className={css.title}>Image URl</p>
                       <input
                       type='text'
                       className={css.Input} 
@@ -84,7 +83,7 @@ export default function Home() {
                       onChange={(e) => setItemPrice2(e.target.value)} />
                     </div>
                     <div>
-                      <p className={css.title}>Url</p>
+                      <p className={css.title}>Image  Url</p>
                       <input
                       type='text'
                       className={css.Input} 
