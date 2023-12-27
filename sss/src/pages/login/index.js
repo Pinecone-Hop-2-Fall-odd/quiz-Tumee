@@ -2,21 +2,25 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
 import css from './index.module.css'
-import { Header } from '../components/header';
-export default function Home() {
+ export default function Home() {
   const [UserName, setUserName] = useState("");
   const [key,setKey] = useState("")
   const router = useRouter();
   const login = async () => {
-    const { data } = await axios.post('http://localhost:8000/login', {
-            password: key,
-            UserName: UserName
-        });
-        if (data?.user) {
-            localStorage.setItem("uid", data.user.id);
-            router.push('/');
-        }
-  };
+    try {
+      const { status, data } = await axios.post('http://localhost:8000/login', {
+        password: key,
+        UserName: UserName
+      })
+      if (status === 200) {
+          if (data?.token) {
+              localStorage.setItem("token", data.token);
+              router.push('/');
+          }
+
+      }
+  } catch (error) { }
+        } 
     return (
       <div className={css.body}>
         <div className={css.Div}>

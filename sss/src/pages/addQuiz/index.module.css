@@ -14,13 +14,13 @@
     position: absolute;
     width: 100vh;
     margin-left: 45vh ;
-    margin-top: 42vh;
+    margin-top: 1vh;
     
 }
 .Div1{
-    display: flex;
     gap: 10vh;
-    margin-left:12.5vh ;
+    margin-top: 25vh;
+    margin-left:32vh ;
 }
 .Div1 div{
     display: flex;
@@ -42,7 +42,7 @@
     border-radius: 6px;
     width: 16vh;
     height: 3.5vh;
-    margin-left:46vh ;
+    margin-left:42vh ;
     margin-top: 5vh ;
     background-color: white;
     border-radius: 6px;
@@ -58,7 +58,7 @@
 }
 .title{
     color: white;
-    margin-left: -30vh;
+    margin-left: -62vh;
     font-size: 2vh;
 }
 .DIVV{
