@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-export function Header(){
+export function  Header(){
   const router = useRouter();
   const searchButton = (
     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
@@ -17,7 +17,7 @@ export function Header(){
       <div>
         <div>
           <p className="UserName"></p>
-          <button className="CreateQuiz">{addButton}</button>
+          <button onClick={() => router.push(`/addQuiz`)} className="CreateQuiz">{addButton}</button>
         </div>
         <img className="UserProfile"></img>
       </div>

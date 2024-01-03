@@ -28,7 +28,7 @@ import css from './index.module.css'
             <div className={css.Div1}>
                 <input 
                 className={css.Input} 
-                placeholder="UserName" 
+                placeholder="Username" 
                 value={UserName} 
                 onChange={(e) => setUserName(e.target.value)} />
                 <input type='password' 

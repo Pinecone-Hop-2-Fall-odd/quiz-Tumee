@@ -1,27 +1,34 @@
 import axios from "axios";
 import { Header } from "../components/header";
-import { useState } from "react";
-import { data } from "autoprefixer";
+import { useState,useEffect,useContext } from "react";
+import { UserDataContext } from "../layout";
+import Router from "next/navigation";
 
 export default function Quiz() {
-  const [quizImg1, setQuizImg1] = useState("");
-  const [quizName1, setQuizName1] = useState("");
-  const [quizImg2, setQuizImg2] = useState("");
-  const [quizName2, setQuizName2] = useState("");
+  const { token } = useContext(UserDataContext);
+  const [quizData, setQuizData] = useState(null)
   
   const WOIE_Quiz = async () => {
-    const data = await axios.get("http://localhost:8000/quiz");
-      const dataCont = data.data.quiz;
+    try {
+      const { data } = await axios(`http://localhost:8000/quiz`, { headers: { "shhhh": token } });
+      setQuizData(data)
+  } catch (err) {
+      console.log(err);
+  }
   };
   const quiz = async () =>{
     const quizF = await axios.get("http://localhost:8000/quizF",{
-      img1: quizImg1,
-      img2: quizImg2
+      img: quizData,
       }
     )
   }
-  WOIE_Quiz();
+  useEffect(() => {
+    if (token) {
+        WOIE_Quiz();
+    }
+}, [token])
 
+if (!quizData) return <div>Loading...</div>
   return (
     <div>
       <Header />
@@ -33,6 +40,7 @@ export default function Quiz() {
         </div>
         <div onClick={quiz}>
           <img src="" className="button2"></img>
+          <p></p>
         </div>
       </div>
     </div>

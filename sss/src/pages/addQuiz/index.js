@@ -45,7 +45,7 @@ export default function Home() {
                       onChange={(e) => setItemPrice(e.target.value)} />
                     </div>
                     <div>
-                      <p className={css.title}>Image or URL</p>
+                      <p className={css.title}>Image URL</p>
                       <input
                       type='text'
                       className={css.Input} 

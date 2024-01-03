@@ -4,14 +4,14 @@ import jwt from "jsonwebtoken";
 export const login = async (req, res) => {
   const body = req.body;
   if (body.UserName === undefined) {
-    res.status(403).json({ message: "Username required" });
+    res.status(403).json({ message: "Username empty" });
     return;
   }
   if (body.password === undefined) {
-    res.status(403).json({ message: "Password required" });
+    res.status(403).json({ message: "Password empty" });
     return;
   }
-  const data = await UserModel.find(username, password);
+  const data = await UserModel.findOne({ username: body.UserName,password: body.password})
   const filterU = data.filter((cur) => cur.username === body.UserName);
   if (filterU.length === 0) {
     res.status(406).json({ message: "User not found" });
@@ -23,13 +23,10 @@ export const login = async (req, res) => {
         "verySecretKey",
         { expiresIn: "20h" }
       );
-
       res.status(200).json({ token });
-
-      // localStorage.setItem("uid", data.user.id);
       return;
     } else {
-      res.status(405).json({ message: "Password not match" });
+      res.status(405).json({ message: "Password is wrong" });
       return;
     }
   }
