@@ -51,3 +51,12 @@
     background-color: none;
     border-radius: 6px;
 }
+.ageInput{
+    border:none;
+    width: 15vh;
+    height: 5vh;
+    margin: 0.2vh;
+    border-radius: 6px;
+    text-align: center;
+    margin-left: 10vh;
+}

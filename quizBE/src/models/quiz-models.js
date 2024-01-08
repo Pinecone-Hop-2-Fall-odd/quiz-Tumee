@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const quizSchema = new mongoose.Schema({
-    img1: String,
-    price1: Number,
-    quizName1: String,
+    img: String,
+    price: Number,
+    quizName: String,
 });
 export const QuizModel = mongoose.model("quiz", quizSchema);

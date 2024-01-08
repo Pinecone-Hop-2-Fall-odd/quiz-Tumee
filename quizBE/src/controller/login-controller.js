@@ -11,15 +11,15 @@ export const login = async (req, res) => {
     res.status(403).json({ message: "Password empty" });
     return;
   }
-  const data = await UserModel.findOne({ username: body.UserName,password: body.password})
+  const data = await UserModel.find({ username: body.UserName,password: body.password})
   const filterU = data.filter((cur) => cur.username === body.UserName);
-  if (filterU.length === 0) {
+  if (!filterU) {
     res.status(406).json({ message: "User not found" });
   } else {
     const user = filterU[0];
     if (user.password === body.password) {
       const token = jwt.sign(
-        { uid: user.id, username: user.username },
+        { uid: filterU.id, username: filterU.username },
         "verySecretKey",
         { expiresIn: "20h" }
       );

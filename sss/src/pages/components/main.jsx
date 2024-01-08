@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 export function Main() {
-  const [start,setStart]=useState("")
   const router = useRouter();
   return (
     <div onClick={() => router.push(`/quiz`)}>

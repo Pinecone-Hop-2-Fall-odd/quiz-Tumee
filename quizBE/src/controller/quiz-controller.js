@@ -15,9 +15,9 @@ export const AddQuiz = async (request, response) => {
     return;
   }
   const newUser = {
-    img1: body.url,
-    quizName1: body.name,
-    price1: body.price,
+    img: body.url,
+    quizName: body.name,
+    price: body.price,
   };
   const result = await QuizModel.create(newUser);
   response.status(200).json({
@@ -33,9 +33,9 @@ export const quiz = async (req, res) => {
 };
 export const quizF = async(req,res) => {
   const body =req.body;
-  const URL = QuizModel.find({img1,price1})
-  const Url1 = (await URL).filter((cur) => cur.img1 == body.img1)
-  const Url2 = (await URL).filter((cur) => cur.img1 == body.img2)
+  const URL = await QuizModel.find({img : body.img,price : body.price})
+  const Url1 = URL.filter((cur) => cur.img == body.img1)
+  const Url2 = URL.filter((cur) => cur.img == body.img2)
   const quiz1 = Url1[0]
   const quiz2 = Url2[0]
   if (quiz1 < quiz2){

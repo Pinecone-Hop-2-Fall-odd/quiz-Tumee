@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from "next/navigation";
+import { Input } from '../components/input';
 import css from './index.module.css'
+
  export default function Home() {
   const [UserName, setUserName] = useState("");
   const [key,setKey] = useState("")
@@ -26,12 +28,12 @@ import css from './index.module.css'
         <div className={css.Div}>
           <img></img>
             <div className={css.Div1}>
-                <input 
+                <Input 
                 className={css.Input} 
                 placeholder="Username" 
                 value={UserName} 
                 onChange={(e) => setUserName(e.target.value)} />
-                <input type='password' 
+                <Input type='password' 
                 className={css.Input} 
                 placeholder="password" 
                 value={key} 
