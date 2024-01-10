@@ -20,7 +20,8 @@
 .Div1{
     gap: 10vh;
     margin-top: 25vh;
-    margin-left:32vh ;
+    margin-left:10vh ;
+    display: flex;
 }
 .Div1 div{
     display: flex;
@@ -58,7 +59,7 @@
 }
 .title{
     color: white;
-    margin-left: -62vh;
+    margin-left: -32vh;
     font-size: 2vh;
 }
 .DIVV{
