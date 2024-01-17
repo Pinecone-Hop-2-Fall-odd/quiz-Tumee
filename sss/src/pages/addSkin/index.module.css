@@ -1,5 +1,5 @@
 .body{
-    background-image: url("https://dmarket.com/blog/best-csgo-wallpapers/tercsgo_huc01d3a403c050d47715d6aeed15b344f_839613_1920x1080_resize_q100_lanczos.jpg");
+    background-image: url("https://preview.redd.it/ctrqh0h0lcg91.jpg?width=3840&format=pjpg&auto=webp&s=5d6f35bf7235066f300862b77241ac308e791524");
     background-size: cover;
     background-repeat: no-repeat;
     height: 105vh;
@@ -13,14 +13,19 @@
     background-color: transparent;
     position: absolute;
     width: 100vh;
-    margin-left: 47vh;
-    margin-top: 22vh;
+    margin-left: 45vh ;
+    margin-top: 1vh;
     
 }
 .Div1{
+    gap: 10vh;
+    margin-top: 25vh;
+    margin-left:10vh ;
+    display: flex;
+}
+.Div1 div{
     display: flex;
     flex-direction: column;
-    margin-left:31.5vh ;
 }
 .Div h1{
     color: white;
@@ -31,14 +36,15 @@
     width: 36vh;
     height: 5vh;
     text-align: center;
-    margin: 1vh;
+    margin: 0.2vh;
     border-radius: 6px;
 }
-.lOGIN{
+.Post{
     border-radius: 6px;
     width: 16vh;
     height: 3.5vh;
-    margin-left:10vh ;
+    margin-left:42vh ;
+    margin-top: 5vh ;
     background-color: white;
     border-radius: 6px;
     border: none;
@@ -51,12 +57,13 @@
     background-color: none;
     border-radius: 6px;
 }
-.ageInput{
-    border:none;
-    width: 15vh;
-    height: 5vh;
-    margin: 0.2vh;
-    border-radius: 6px;
-    text-align: center;
-    margin-left: 10vh;
+.title{
+    color: white;
+    margin-left: -32vh;
+    font-size: 2vh;
+}
+.DIVV{
+    width: 100vh;
+    height: auto;
+    background-color: black;
 }

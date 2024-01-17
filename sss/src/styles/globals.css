@@ -1,7 +1,7 @@
 @import url("./header.css");
 .startButton{
-    width: 35vh;
-    height: 10vh;
+    width: 25vh;
+    height: 25vh;
     margin-left: 80vh;
     margin-top: 20vh;
     border-radius: 60px;
@@ -17,12 +17,14 @@
     height: 40vh;
     margin: 200px;
     border: 10px solid #3aaef0;
+    border-radius: 10%;
 }
 .button2{
     width: 60vh;
     height: 40vh;
     margin: 200px;
     border: 10px solid #e73929;
+    border-radius: 10%;
 }
 .greenImg{
  border: 10px solid green;

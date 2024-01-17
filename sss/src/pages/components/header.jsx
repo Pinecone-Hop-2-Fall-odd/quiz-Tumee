@@ -17,7 +17,7 @@ export function  Header(){
       <div>
         <div>
           <p className="UserName"></p>
-          <button onClick={() => router.push(`/addQuiz`)} className="CreateQuiz">{addButton}</button>
+          <button onClick={() => router.push(`/add`)} className="CreateQuiz">{addButton}</button>
         </div>
         <img className="UserProfile"></img>
       </div>

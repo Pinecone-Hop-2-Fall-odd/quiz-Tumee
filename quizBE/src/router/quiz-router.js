@@ -5,4 +5,4 @@ export const Router = express.Router()
 
 Router.post('/AddQuiz',AddQuiz);
 Router.get("/quiz",quiz);
-Router.get('/quizF',quizF);
+Router.post('/quizF',quizF);
