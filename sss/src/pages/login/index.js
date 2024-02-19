@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/router';
 import { Input } from '../components/input';
 import css from './index.module.css'
 
@@ -33,7 +33,8 @@ import css from './index.module.css'
                 placeholder="Username" 
                 value={UserName} 
                 onChange={(e) => setUserName(e.target.value)} />
-                <Input type='password' 
+                <Input 
+                type="hidden"
                 className={css.Input} 
                 placeholder="password" 
                 value={key} 
@@ -42,7 +43,7 @@ import css from './index.module.css'
             </div>
             <div>
                 <button  className={css.button}>Forget Password?</button>
-                <button onClick={()=>router.push("/SignUp")} className={css.button}>Sign Up?</button>
+                <button onClick={router.push("/SignUp")} className={css.button}>Sign Up?</button>
             </div>
         </div>
       </div>

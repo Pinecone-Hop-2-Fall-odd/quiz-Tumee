@@ -1,36 +1,32 @@
 import { UserModel } from "../models/user-model.js";
 
-export const SignUp = async (request, response) => {
-  const body = request.body;
+export const SignUp = async (req, res) => {
+  const body = req.body;
+  const dta = await UserModel.find()
+  if(body.email == null){
+    res.status(403).json({ message: "your email is required" });
+    return;
+  }
+  if(body.UserName == null){
+    res.status(403).json({ message: "your username is required" });
+    return;
+  }
+  if(body.password == null){
+    res.status(403).json({ message: "your password is required" });
+    return;
+  }
+  if(body.email == dta.email){
+    res.status(403).json({ message: "your email is have a registration" });
+    return;
+  }
   const newUser = {
     username: body.UserName,
     password: body.password,
+    email:body.email
   };
   const result = await UserModel.create(newUser);
-  response.json({
-    status: "success",
+  res.status(200).json({
     data: result,
+    message: "success",
   });
-
 };
-// fs.readFile("./data/data.json", (readError, data) => {
-//   let saveData = JSON.parse(data);
-//   const newUser = {
-//     id: Date.now().toString(),
-//     username: body.UserName,
-//     password: body.key,
-//   };
-//   saveData.push(newUser);
-//   fs.writeFile("./data/data.json", JSON.stringify(saveData), (writeError) => {
-//     if (writeError) {
-//       response.json({
-//         status: "error",
-//       });
-//     } else {
-//       response.json({
-//         status: "success",
-//         data: saveData,
-//       });
-//     }
-//   });
-// });

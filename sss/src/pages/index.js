@@ -1,25 +1,60 @@
-"use client"
-import { useRouter } from "next/navigation"
-import { Header } from "./components/header"
-import { Main } from "./components/main"
-import { UserDataContext } from "./_app"
-import { useContext, useEffect, useState } from "react"
-export default function Home(){
-    const router = useRouter();
-    /*useEffect(() => {
-      const uid = localStorage.getItem("uid");  
-      if (uid === null) {
-        router.push('/login')
-      }
-    }, []);*/
-    const [quiz, setQuiz] = useState([]);
-    const { token } = useContext(UserDataContext);
-    return(
-        <div>
-            <Header/>
-            <div onClick={() => router.push(`/quiz-CS-GO`)}>
-              <button className="startButton"><svg xmlns="http://www.w3.org/2000/svg" height="7vh" viewBox="0 0 384 512"><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>Start</button>
-            </div>
-        </div>
-    )
+"use client";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { Header } from "./components/header";
+import { Quiz } from "./components/quiz";
+import { UserDataContext } from "./_app";
+import { useContext, useEffect, useState } from "react";
+export default function Home() {
+  const [quizData, setQuizData] = useState(1);
+  const [quizD, setQuizD] = useState([]);
+  const router = useRouter();
+
+  const quiz1 = async () => {
+    const quiz = await axios.get("http://localhost:8000/quiz");
+    const datas = quiz.data.quizs;
+    const filteredObjects = datas.reduce((acc, item) => {
+      acc[item.name] = item;
+      return acc;
+    }, {});
+
+    const finalData = Object.values(filteredObjects);
+    setQuizD(finalData);
+    console.log("finalData", finalData);
+  };
+
+  useEffect(() => {
+    setQuizData(quizData + 1);
+    const token = localStorage.getItem("token");
+    if (token === null) {
+      router.push("/login");
+    }
+    quiz1();
+  }, []);
+
+  return (
+    <div className="Div_1">
+      <Header />
+      <div
+        style={{
+          justifyContent: "center",
+          textAlign: "start",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "10vh",
+          marginTop: "10vh",
+          marginRight: "40vh",
+          marginLeft: "40vh",
+        }}
+      >
+        {quizD?.map((cur) => (
+          <Quiz
+            IMG={cur.img}
+            Name={cur.name}
+            onclick={() => router.push(`/play?Name=${cur.name}`)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }

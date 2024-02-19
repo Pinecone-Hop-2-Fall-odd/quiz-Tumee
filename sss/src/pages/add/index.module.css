@@ -1,0 +1,26 @@
+.Div {
+    display: flex;
+    gap: 10vh;
+    margin-top: 20vh;
+    justify-content: center;
+    text-align: center;
+}
+.p1{
+    justify-content: center;
+    text-align: center;
+    font-size: 5vh;
+}
+.button_1{
+    width: 35vh;
+    height: 35vh;
+    border-radius: 20%;
+    background-position: center;
+    background-image: url(https://i.ytimg.com/vi/69Vouc3P4N4/hqdefault.jpg);
+}
+.button_2{
+    width: 35vh;
+    height: 35vh;
+    border-radius: 20%;
+    background-position: center;
+    background-image: url(https://files.bo3.gg/uploads/news/7777/title_image/960x480-9b127ebf495998732b22ab5a3b80258f.webp);
+}

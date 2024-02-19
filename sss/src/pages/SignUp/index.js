@@ -9,18 +9,11 @@ export default function Home() {
   const [userEmail, setUserEmail] = useState("");
   const [age, setAge] = useState("");
   const router = useRouter();
-
-  //const login = async () => {
-    //const { data } = await axios.post("http://localhost:8000/SignUp", {
-      //key: key,
-      //UserName: UserName,
-    //});
     async function login() {
       const { data } = await axios.post('http://localhost:8000/SignUp', {
         password: key,
         UserName: UserName,
         email : userEmail,
-        age : age
     });
       console.log(`complete`);
       setUserName("");

@@ -2,19 +2,23 @@ import axios from "axios";
 import { Header } from "../components/header";
 import { useState, useEffect, useContext } from "react";
 import { UserDataContext } from "../_app";
-import Answer from "../components/Question";
-import Router, { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 
 export default function Quiz() {
   const { token } = useContext(UserDataContext);
   const [quizData, setQuizData] = useState(null);
-  const [num , setNum]=useState(0)
-  const [score , setScore]=useState(0)
-  const Router = useRouter()
+  const [num, setNum] = useState(0);
+  const [time, setTime] = useState(10);
+  const [score, setScore] = useState(0);
+  const [correct,setCorrect] = useState();
+  const Router = useRouter();
+  const params=useSearchParams();
 
   const WOIE_Quiz = async () => {
+    const Name=params.get("Name")
     try {
-      const { data } = await axios.get(`http://localhost:8000/quiz`, {
+      const { data } = await axios.get(`http://localhost:8000/quizz/${Name}`, {
         headers: { token: token },
       });
       setQuizData(data);
@@ -23,33 +27,63 @@ export default function Quiz() {
       console.log(err);
     }
   };
+
   const playQuiz = async (selected) => {
     const { data } = await axios.post("http://localhost:8000/quizF", {
       id: quizData.quiz[num]._id,
       selected,
     });
     if (data.message === "wrong") {
-      alert("wrong");
+      wrong();
+    } else if (data.message === "correct") {
+      right();
     }
-    else if (data.message === 'correct'){
-      alert("correct")
-      setScore(score+1)
-    }
+    setNum(num + 1);
+  }; 
+  if (time==0){
     setNum(num+1)
-      if(quizData?.quiz[num+1]?.img_1 == undefined){
-        Router.push(`/result?point=${score}&num=${num}`)}
-  };
+    setTime(10)
+  } 
+  useEffect(() => {
+    const second = setInterval(() => setTime((prev) => (prev -= 1)), 1000);
+    return () => clearInterval(second);
+  }, []);
+
+  function wrong() {
+    setCorrect("correct")
+    setTime(10)
+  }
+  
+  function right() {
+    setCorrect("wrong")
+    setScore(score + 1);
+    setTime(10)
+  }
+  let style = {
+    
+  }
+  useEffect(() => {
+    if (quizData?.quiz.length === num) {
+      Router.push(`/result?point=${score}&num=${num}`);
+    }
+  }, [num, score]);
+
   useEffect(() => {
     if (token) {
       WOIE_Quiz();
     }
   }, [token]);
+
   if (!quizData) return <div>Loading...</div>;
   return (
-    <div>
+    <div className="Divv">
       <Header />
-      <p className="woime">Which skin is more expensive</p>
-      <p>{score}/{num}</p>
+      <p className="woime">Guess which one is more expensive</p>
+      <p>You have {time}s</p>
+      <p>
+        {score}/{num}
+      </p>
+      <p>{correct}</p>
       <div className="quiz-res-div">
         <div onClick={() => playQuiz(0)}>
           <img src={quizData?.quiz[num]?.img_1} className="button1"></img>

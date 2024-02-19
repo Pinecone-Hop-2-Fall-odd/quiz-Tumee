@@ -21,8 +21,14 @@ const connectQuiz = async () => {
     "mongodb+srv://Tum:Tumee0205@cluster0.femwxfk.mongodb.net/");
   console.log("connected");
 };
+const connectQuizz = async () => {
+  await mongoose.connect(
+    "mongodb+srv://Tum:Tumee0205@cluster0.femwxfk.mongodb.net/");
+  console.log("connected");
+};
 connectUser();
 connectQuiz();
+connectQuizz();
 app.listen(port, () => {
   console.log("Server is running on http://localhost:" + port);
 });

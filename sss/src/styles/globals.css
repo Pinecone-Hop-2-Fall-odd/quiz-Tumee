@@ -1,16 +1,17 @@
 @import url("./header.css");
 .startButton{
-    width: 25vh;
-    height: 25vh;
-    margin-left: 80vh;
-    margin-top: 20vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 60px;
-    font-size: 6vh;
+    font-size: 3vh;
     display: flex;
     justify-content: center;
-    gap: 5vh;
+    gap: 20vh;
     padding-top:1vh ;
-    border-style: double;
+    background-size: cover;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: 200%;
 }
 .button1{
     width: 60vh;
@@ -65,4 +66,36 @@
     color: #e73929;
     margin-top: -17vh ;
     font-size: 5vh;
+}
+.div{
+    justify-content: center;
+    text-align: center;
+    gap: 10vh;
+    background-image: url(https://wallpapers.com/images/hd/new-year-party-decorations-background-6x5p2fdximgcn3p0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover  ;
+    height: 100%;
+    width: 195vh;
+    margin-left: -1vh;
+    margin-top: -1vh;
+    position: absolute;
+}
+.div h1{
+    font-size: 10vh;
+    color: #FFFF00;
+}
+.div p{
+    font-size: 7vh;
+    color: white;
+}
+.div div{
+    font-size: 7vh;
+    color: white;
+}
+.div button{
+    width: 30vh;
+    height: 6vh;
+    color: white;
+    margin-top: 10vh;
+    background-image: url(https://wallpapers.com/images/hd/new-year-party-decorations-background-6x5p2fdximgcn3p0.jpg);
 }

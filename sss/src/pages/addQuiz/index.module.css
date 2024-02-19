@@ -1,0 +1,32 @@
+.Div{
+    background-image: url(https://wallpapercave.com/wp/wp11540189.jpg);
+    background-position: center;
+    position: absolute;
+    width: 100.2%;
+    height: 105vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    background-repeat: no-repeat;
+    margin: -1vh;
+}
+.input_1{
+    width: 35vh;
+    height: 5vh;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 40vh;
+}
+.input_2{
+    width: 35vh;
+    height: 5vh;
+    text-align: center;
+    margin-left: 40%;
+}
+.but{
+    width: 10vh;
+    height: 5vh;
+    justify-content: center;
+    margin-left: 46%;
+}
